@@ -47,7 +47,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- belongs_to :item
   has_one :shipping_address
 
 ## shipping_address テーブル
@@ -58,11 +58,11 @@
 | prefecture_id  | integer    | null: false                    |
 | municipality   | string     | null: false                    |
 | address        | string     | null: false                    |
-| building_name  | string     | null: false                    |
+| building_name  | string     |                                |
 | phone_number   | integer    | null: false                    |
 | purchase       | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
 
