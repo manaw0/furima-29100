@@ -11,5 +11,6 @@ class Item < ApplicationRecord
     validates :shipping_fee_id
     validates :prefecture_id
     validates :shipping_days_id
+    validates :image
   end
 end
