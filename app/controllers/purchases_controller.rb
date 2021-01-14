@@ -3,13 +3,13 @@ class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    @oder_form = OderForm.new
+    @order_form = OrderForm.new
   end
 
   def create
-    @oder_form = OderForm.new(purchase_params)
-    if @oder_form.valid?
-      @oder_form.save
+    @order_form = OrderForm.new(purchase_params)
+    if @order_form.valid?
+      @order_form.save
       redirect_to root_path
     else
       render :index
@@ -19,7 +19,7 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:oder_form).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:order_form).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def set_item
